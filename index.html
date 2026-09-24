@@ -1,1 +1,635 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
 
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0,
+        maximum-scale=1.0, user-scalable=no"
+    >
+
+    <title>RIM CHA</title>
+
+    <!-- Telegram Mini App -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <!-- AdsGram -->
+    <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            color: white;
+            background:
+                radial-gradient(
+                    circle at top,
+                    #123c70 0%,
+                    #07111f 45%,
+                    #02050a 100%
+                );
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            margin: auto;
+            padding: 25px 18px 35px;
+            text-align: center;
+        }
+
+        .logo {
+            margin-top: 25px;
+            font-size: 44px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: #20a7ff;
+
+            text-shadow:
+                0 0 10px #008cff,
+                0 0 25px #008cff,
+                0 0 45px #0065d1;
+        }
+
+        .subtitle {
+            margin-top: 8px;
+            color: #b8dfff;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .user {
+            margin-top: 18px;
+            color: #9ed9ff;
+            font-size: 14px;
+        }
+
+        .coins-box {
+            margin: 28px auto 22px;
+            padding: 22px;
+
+            border-radius: 22px;
+
+            background:
+                rgba(255, 255, 255, 0.08);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.12);
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.35);
+        }
+
+        .coins-label {
+            color: #a9bfd3;
+            font-size: 14px;
+        }
+
+        .coins {
+            margin-top: 7px;
+            font-size: 40px;
+            font-weight: 900;
+            color: #ffd43b;
+        }
+
+        .progress-box {
+            margin: 20px 0;
+        }
+
+        .progress-text {
+            margin-bottom: 10px;
+            color: #dcecff;
+            font-size: 15px;
+        }
+
+        .progress {
+            width: 100%;
+            height: 12px;
+
+            background:
+                rgba(255, 255, 255, 0.12);
+
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #008cff,
+                    #20d9ff
+                );
+
+            border-radius: 20px;
+
+            transition:
+                width 0.3s ease;
+        }
+
+        .ad-button {
+            width: 100%;
+            padding: 17px;
+
+            border: none;
+            border-radius: 16px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #008cff,
+                    #0065d1
+                );
+
+            color: white;
+
+            font-size: 17px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0, 140, 255, 0.30);
+        }
+
+        .ad-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .status {
+            min-height: 25px;
+            margin-top: 16px;
+
+            color: #9ed9ff;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .info {
+            margin-top: 22px;
+
+            color: #8fa8bd;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .warning {
+            margin-top: 18px;
+            padding: 12px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255, 180, 0, 0.10);
+
+            color: #ffd76a;
+
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: #526b80;
+            font-size: 11px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        RIM CHA
+    </div>
+
+    <div class="subtitle">
+        REGARDE • GAGNE • PROFITE
+    </div>
+
+    <div class="user" id="username">
+        Bienvenue 👋
+    </div>
+
+    <div class="coins-box">
+
+        <div class="coins-label">
+            TES PIÈCES
+        </div>
+
+        <div class="coins" id="coins">
+            0 🪙
+        </div>
+
+    </div>
+
+    <div class="progress-box">
+
+        <div
+            class="progress-text"
+            id="progressText"
+        >
+            Publicités regardées : 0 / 5
+        </div>
+
+        <div class="progress">
+
+            <div
+                class="progress-bar"
+                id="progressBar"
+            ></div>
+
+        </div>
+
+    </div>
+
+    <button
+        class="ad-button"
+        id="adButton"
+    >
+        📺 REGARDER UNE PUBLICITÉ
+    </button>
+
+    <div
+        class="status"
+        id="status"
+    >
+        Prêt à commencer.
+    </div>
+
+    <div class="info">
+        Regarde 5 publicités récompensées
+        pour obtenir tes pièces.
+    </div>
+
+    <div class="warning">
+        ⚠️ La récompense affichée ici est une
+        démonstration côté Mini App.
+        La validation définitive des pièces
+        devra être faite par ton serveur.
+    </div>
+
+    <div class="footer">
+        RIM CHA • Mini App
+    </div>
+
+</div>
+
+
+<script>
+
+    /*
+    ==========================================
+    TELEGRAM MINI APP
+    ==========================================
+    */
+
+    const tg = window.Telegram.WebApp;
+
+    tg.ready();
+    tg.expand();
+
+
+    /*
+    ==========================================
+    UTILISATEUR TELEGRAM
+    ==========================================
+    */
+
+    const telegramUser = tg.initDataUnsafe?.user || null;
+
+    const usernameElement =
+        document.getElementById("username");
+
+    if (telegramUser) {
+
+        const firstName =
+            telegramUser.first_name || "Utilisateur";
+
+        usernameElement.textContent =
+            "Bienvenue " + firstName + " 👋";
+
+    } else {
+
+        usernameElement.textContent =
+            "Bienvenue 👋";
+
+    }
+
+
+    /*
+    ==========================================
+    CONFIGURATION
+    ==========================================
+    */
+
+    const REQUIRED_ADS = 5;
+
+    const REWARD = 20;
+
+    /*
+    IMPORTANT :
+    Remplace TON_BLOCK_ID par ton vrai
+    BlockID AdsGram quand tu l'auras.
+    */
+
+    const BLOCK_ID = "TON_BLOCK_ID";
+
+
+    /*
+    ==========================================
+    ÉLÉMENTS
+    ==========================================
+    */
+
+    const adButton =
+        document.getElementById("adButton");
+
+    const progressText =
+        document.getElementById("progressText");
+
+    const progressBar =
+        document.getElementById("progressBar");
+
+    const status =
+        document.getElementById("status");
+
+    const coinsElement =
+        document.getElementById("coins");
+
+
+    /*
+    ==========================================
+    ÉTAT LOCAL
+    ==========================================
+    */
+
+    let adsWatched = 0;
+
+    let coins = 0;
+
+    let AdController = null;
+
+
+    /*
+    ==========================================
+    AFFICHAGE
+    ==========================================
+    */
+
+    function updateDisplay() {
+
+        coinsElement.textContent =
+            coins + " 🪙";
+
+
+        progressText.textContent =
+            "Publicités regardées : "
+            + adsWatched
+            + " / "
+            + REQUIRED_ADS;
+
+
+        const percentage =
+            Math.min(
+                (adsWatched / REQUIRED_ADS) * 100,
+                100
+            );
+
+
+        progressBar.style.width =
+            percentage + "%";
+
+
+        if (adsWatched >= REQUIRED_ADS) {
+
+            adButton.disabled = true;
+
+            adButton.textContent =
+                "✅ RÉCOMPENSE OBTENUE";
+
+        }
+
+    }
+
+
+    /*
+    ==========================================
+    INITIALISATION ADSGRAM
+    ==========================================
+    */
+
+    function initializeAds() {
+
+        if (BLOCK_ID === "TON_BLOCK_ID") {
+
+            status.textContent =
+                "⚠️ BlockID AdsGram pas encore configuré.";
+
+            return false;
+
+        }
+
+
+        if (
+            !window.Adsgram ||
+            typeof window.Adsgram.init !== "function"
+        ) {
+
+            status.textContent =
+                "❌ AdsGram n'est pas disponible.";
+
+            return false;
+
+        }
+
+
+        try {
+
+            AdController =
+                window.Adsgram.init({
+                    blockId: BLOCK_ID
+                });
+
+
+            return true;
+
+        } catch (error) {
+
+            console.error(
+                "AdsGram initialization error:",
+                error
+            );
+
+
+            status.textContent =
+                "❌ Impossible d'initialiser AdsGram.";
+
+            return false;
+
+        }
+
+    }
+
+
+    /*
+    ==========================================
+    REGARDER UNE PUBLICITÉ
+    ==========================================
+    */
+
+    async function watchAd() {
+
+        if (adsWatched >= REQUIRED_ADS) {
+
+            return;
+
+        }
+
+
+        if (!AdController) {
+
+            const initialized =
+                initializeAds();
+
+
+            if (!initialized) {
+
+                return;
+
+            }
+
+        }
+
+
+        adButton.disabled = true;
+
+        adButton.textContent =
+            "⏳ CHARGEMENT...";
+
+
+        status.textContent =
+            "Préparation de la publicité...";
+
+
+        try {
+
+            /*
+            AdsGram Rewarded :
+            la Promise se résout lorsque
+            la publicité récompensée est
+            regardée jusqu'à la fin.
+            */
+
+            await AdController.show();
+
+
+            /*
+            ==================================
+            DÉMO DE RÉCOMPENSE
+            ==================================
+
+            Pour l'instant, on incrémente
+            localement.
+
+            PLUS TARD :
+            cette partie sera remplacée
+            par une validation serveur.
+            */
+
+            adsWatched++;
+
+
+            status.textContent =
+                "✅ Publicité terminée !";
+
+
+            /*
+            Récompense après 5 publicités
+            */
+
+            if (
+                adsWatched >= REQUIRED_ADS
+            ) {
+
+                coins += REWARD;
+
+                status.textContent =
+                    "🎉 Bravo ! Tu as reçu "
+                    + REWARD
+                    + " 🪙";
+
+            }
+
+
+            updateDisplay();
+
+
+        } catch (error) {
+
+            console.error(
+                "AdsGram error:",
+                error
+            );
+
+
+            status.textContent =
+                "❌ Publicité indisponible. Réessaie.";
+
+
+        } finally {
+
+            if (
+                adsWatched < REQUIRED_ADS
+            ) {
+
+                adButton.disabled = false;
+
+                adButton.textContent =
+                    "📺 REGARDER UNE PUBLICITÉ";
+
+            }
+
+        }
+
+    }
+
+
+    /*
+    ==========================================
+    BOUTON
+    ==========================================
+    */
+
+    adButton.addEventListener(
+        "click",
+        watchAd
+    );
+
+
+    /*
+    ==========================================
+    AFFICHAGE INITIAL
+    ==========================================
+    */
+
+    updateDisplay();
+
+</script>
+
+</body>
+  </html>
