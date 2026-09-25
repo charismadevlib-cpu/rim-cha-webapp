@@ -28,6 +28,7 @@
             min-height: 100vh;
             font-family: Arial, sans-serif;
             color: white;
+
             background:
                 radial-gradient(
                     circle at top,
@@ -35,20 +36,32 @@
                     #07111f 45%,
                     #02050a 100%
                 );
+
             overflow-x: hidden;
+        }
+
+        button {
+            font-family: inherit;
         }
 
         .container {
             width: 100%;
             max-width: 480px;
             margin: auto;
-            padding: 25px 18px 35px;
+            padding: 22px 18px 35px;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
             text-align: center;
+            padding-top: 10px;
         }
 
         .logo {
-            margin-top: 25px;
-            font-size: 44px;
+            font-size: 42px;
             font-weight: 900;
             letter-spacing: 4px;
             color: #20a7ff;
@@ -60,62 +73,147 @@
         }
 
         .subtitle {
-            margin-top: 8px;
+            margin-top: 7px;
             color: #b8dfff;
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: 1px;
         }
 
         .user {
-            margin-top: 18px;
+            margin-top: 16px;
             color: #9ed9ff;
             font-size: 14px;
         }
 
+        /* =========================
+           SOLDE
+        ========================= */
+
         .coins-box {
-            margin: 28px auto 22px;
+            margin-top: 24px;
             padding: 22px;
+
+            text-align: center;
 
             border-radius: 22px;
 
             background:
-                rgba(255, 255, 255, 0.08);
+                rgba(255,255,255,0.08);
 
             border:
-                1px solid rgba(255, 255, 255, 0.12);
+                1px solid rgba(255,255,255,0.12);
 
             box-shadow:
-                0 10px 35px rgba(0, 0, 0, 0.35);
+                0 10px 35px rgba(0,0,0,0.35);
         }
 
         .coins-label {
             color: #a9bfd3;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .coins {
-            margin-top: 7px;
+            margin-top: 6px;
             font-size: 40px;
             font-weight: 900;
             color: #ffd43b;
         }
 
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .navigation {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 9px;
+            margin-top: 18px;
+        }
+
+        .nav-button {
+            min-height: 58px;
+
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 15px;
+
+            background:
+                rgba(255,255,255,0.07);
+
+            color: white;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .nav-button.active {
+            background:
+                linear-gradient(
+                    135deg,
+                    #008cff,
+                    #0065d1
+                );
+
+            border-color: transparent;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        .section {
+            margin-top: 20px;
+        }
+
+        .section.hidden {
+            display: none;
+        }
+
+        .card {
+            padding: 20px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,0.07);
+
+            border:
+                1px solid rgba(255,255,255,0.10);
+        }
+
+        .card-title {
+            font-size: 21px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .card-description {
+            color: #9fb4c7;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           PUB
+        ========================= */
+
         .progress-box {
-            margin: 20px 0;
+            margin-top: 20px;
         }
 
         .progress-text {
             margin-bottom: 10px;
             color: #dcecff;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .progress {
             width: 100%;
-            height: 12px;
+            height: 11px;
 
             background:
-                rgba(255, 255, 255, 0.12);
+                rgba(255,255,255,0.12);
 
             border-radius: 20px;
             overflow: hidden;
@@ -140,6 +238,7 @@
 
         .ad-button {
             width: 100%;
+            margin-top: 20px;
             padding: 17px;
 
             border: none;
@@ -154,14 +253,14 @@
 
             color: white;
 
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 800;
 
             cursor: pointer;
 
             box-shadow:
                 0 8px 25px
-                rgba(0, 140, 255, 0.30);
+                rgba(0,140,255,0.30);
         }
 
         .ad-button:disabled {
@@ -170,39 +269,120 @@
         }
 
         .status {
-            min-height: 25px;
-            margin-top: 16px;
+            min-height: 24px;
+            margin-top: 14px;
+
+            text-align: center;
 
             color: #9ed9ff;
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.4;
         }
 
-        .info {
-            margin-top: 22px;
+        /* =========================
+           INVITATION
+        ========================= */
 
-            color: #8fa8bd;
+        .invite-box {
+            margin-top: 18px;
+            padding: 16px;
+
+            border-radius: 15px;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            color: #dcecff;
+
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .invite-button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 15px;
+
+            border: none;
+            border-radius: 15px;
+
+            background:
+                rgba(255,255,255,0.10);
+
+            color: white;
+
+            font-size: 15px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        /* =========================
+           VIDEOS
+        ========================= */
+
+        .video-info {
+            margin-top: 15px;
+            padding: 15px;
+
+            border-radius: 15px;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            color: #b8cce0;
+
             font-size: 13px;
             line-height: 1.5;
         }
 
-        .warning {
-            margin-top: 18px;
-            padding: 12px;
+        .bot-button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 15px;
 
-            border-radius: 12px;
+            border: none;
+            border-radius: 15px;
 
             background:
-                rgba(255, 180, 0, 0.10);
+                linear-gradient(
+                    135deg,
+                    #008cff,
+                    #0065d1
+                );
+
+            color: white;
+
+            font-size: 15px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        /* =========================
+           INFO
+        ========================= */
+
+        .warning {
+            margin-top: 18px;
+            padding: 13px;
+
+            border-radius: 13px;
+
+            background:
+                rgba(255,180,0,0.09);
 
             color: #ffd76a;
 
             font-size: 12px;
-            line-height: 1.4;
+            line-height: 1.45;
         }
 
         .footer {
-            margin-top: 30px;
+            margin-top: 28px;
+
+            text-align: center;
+
             color: #526b80;
             font-size: 11px;
         }
@@ -213,72 +393,256 @@
 
 <div class="container">
 
-    <div class="logo">
-        RIM CHA
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <div class="header">
+
+        <div class="logo">
+            RIM CHA
+        </div>
+
+        <div class="subtitle">
+            REGARDE • GAGNE • PROFITE
+        </div>
+
+        <div
+            class="user"
+            id="username"
+        >
+            Bienvenue 👋
+        </div>
+
     </div>
 
-    <div class="subtitle">
-        REGARDE • GAGNE • PROFITE
-    </div>
 
-    <div class="user" id="username">
-        Bienvenue 👋
-    </div>
+    <!-- =========================
+         SOLDE
+    ========================== -->
 
     <div class="coins-box">
 
         <div class="coins-label">
-            TES PIÈCES
+            TON SOLDE
         </div>
 
-        <div class="coins" id="coins">
+        <div
+            class="coins"
+            id="coins"
+        >
             0 🪙
         </div>
 
     </div>
 
-    <div class="progress-box">
 
-        <div
-            class="progress-text"
-            id="progressText"
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <div class="navigation">
+
+        <button
+            class="nav-button active"
+            id="earnNav"
+            type="button"
         >
-            Publicités regardées : 0 / 5
-        </div>
+            🎁 GAGNER
+        </button>
 
-        <div class="progress">
+        <button
+            class="nav-button"
+            id="inviteNav"
+            type="button"
+        >
+            👥 INVITER
+        </button>
+
+        <button
+            class="nav-button"
+            id="videoNav"
+            type="button"
+        >
+            🎬 VIDÉOS
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         GAGNER
+    ========================== -->
+
+    <section
+        class="section"
+        id="earnSection"
+    >
+
+        <div class="card">
+
+            <div class="card-title">
+                🎁 Gagner des pièces
+            </div>
+
+            <div class="card-description">
+                Regarde volontairement des publicités
+                récompensées pour progresser vers ton
+                bonus.
+            </div>
+
+
+            <div class="progress-box">
+
+                <div
+                    class="progress-text"
+                    id="progressText"
+                >
+                    Publicités regardées : 0 / 5
+                </div>
+
+                <div class="progress">
+
+                    <div
+                        class="progress-bar"
+                        id="progressBar"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="ad-button"
+                id="adButton"
+                type="button"
+            >
+                📺 REGARDER UNE PUBLICITÉ
+            </button>
+
 
             <div
-                class="progress-bar"
-                id="progressBar"
+                class="status"
+                id="status"
+                aria-live="polite"
+            >
+                Prêt à commencer.
+            </div>
+
+
+            <div class="warning">
+                ℹ️ Les publicités sont facultatives.
+                La récompense définitive doit être
+                validée par le serveur RIM CHA.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INVITER
+    ========================== -->
+
+    <section
+        class="section hidden"
+        id="inviteSection"
+    >
+
+        <div class="card">
+
+            <div class="card-title">
+                👥 Inviter des amis
+            </div>
+
+            <div class="card-description">
+                Partage RIM CHA avec tes amis.
+                Les invitations peuvent être utilisées
+                par le bot pour calculer les récompenses.
+            </div>
+
+
+            <div class="invite-box">
+
+                🎁 Objectif : inviter
+                <strong>5 personnes</strong>
+
+                <br><br>
+
+                Récompense prévue :
+                <strong>15 🪙</strong>
+
+            </div>
+
+
+            <button
+                class="invite-button"
+                id="inviteButton"
+                type="button"
+            >
+                📤 PARTAGER RIM CHA
+            </button>
+
+
+            <div
+                class="status"
+                id="inviteStatus"
+                aria-live="polite"
             ></div>
 
         </div>
 
-    </div>
+    </section>
 
-    <button
-        class="ad-button"
-        id="adButton"
+
+    <!-- =========================
+         VIDÉOS
+    ========================== -->
+
+    <section
+        class="section hidden"
+        id="videoSection"
     >
-        📺 REGARDER UNE PUBLICITÉ
-    </button>
 
-    <div
-        class="status"
-        id="status"
-    >
-        Prêt à commencer.
-    </div>
+        <div class="card">
 
-    <div class="info">
-        Regarde 5 publicités récompensées
-        pour obtenir tes pièces.
-    </div>
+            <div class="card-title">
+                🎬 Vidéos
+            </div>
 
-    <div class="warning">
-        RIM_CHA PUB
-    </div>
+            <div class="card-description">
+                Consulte les vidéos disponibles
+                directement depuis le bot RIM CHA.
+            </div>
+
+
+            <div class="video-info">
+
+                🪙 Chaque vidéo coûte actuellement
+                <strong>10 pièces</strong>.
+
+                <br><br>
+
+                Ton solde est utilisé directement
+                par le bot lors de l'envoi de la vidéo.
+
+            </div>
+
+
+            <button
+                class="bot-button"
+                id="videoButton"
+                type="button"
+            >
+                🎬 OUVRIR LES VIDÉOS
+            </button>
+
+        </div>
+
+    </section>
+
 
     <div class="footer">
         RIM CHA • Mini App
@@ -289,11 +653,9 @@
 
 <script>
 
-    /*
-    ==========================================
-    TELEGRAM MINI APP
-    ==========================================
-    */
+    /* =========================================
+       TELEGRAM
+    ========================================= */
 
     const tg = window.Telegram.WebApp;
 
@@ -301,13 +663,12 @@
     tg.expand();
 
 
-    /*
-    ==========================================
-    UTILISATEUR TELEGRAM
-    ==========================================
-    */
+    /* =========================================
+       UTILISATEUR
+    ========================================= */
 
-    const telegramUser = tg.initDataUnsafe?.user || null;
+    const telegramUser =
+        tg.initDataUnsafe?.user || null;
 
     const usernameElement =
         document.getElementById("username");
@@ -315,43 +676,40 @@
     if (telegramUser) {
 
         const firstName =
-            telegramUser.first_name || "Utilisateur";
+            telegramUser.first_name ||
+            "Utilisateur";
 
         usernameElement.textContent =
             "Bienvenue " + firstName + " 👋";
 
-    } else {
-
-        usernameElement.textContent =
-            "Bienvenue 👋";
-
     }
 
 
-    /*
-    ==========================================
-    CONFIGURATION
-    ==========================================
-    */
+    /* =========================================
+       CONFIGURATION
+    ========================================= */
 
     const REQUIRED_ADS = 5;
 
     const REWARD = 20;
 
     /*
-    IMPORTANT :
-    Remplace TON_BLOCK_ID par ton vrai
-    BlockID AdsGram quand tu l'auras.
+       BlockID AdsGram
     */
 
     const BLOCK_ID = "49626";
 
 
     /*
-    ==========================================
-    ÉLÉMENTS
-    ==========================================
+       Lien du bot
     */
+
+    const BOT_USERNAME = "Rim_Cha_bot";
+
+
+    /* =========================================
+       ÉLÉMENTS
+    ========================================= */
 
     const adButton =
         document.getElementById("adButton");
@@ -369,11 +727,88 @@
         document.getElementById("coins");
 
 
-    /*
-    ==========================================
-    ÉTAT LOCAL
-    ==========================================
-    */
+    /* =========================================
+       NAVIGATION
+    ========================================= */
+
+    const earnSection =
+        document.getElementById("earnSection");
+
+    const inviteSection =
+        document.getElementById("inviteSection");
+
+    const videoSection =
+        document.getElementById("videoSection");
+
+
+    const earnNav =
+        document.getElementById("earnNav");
+
+    const inviteNav =
+        document.getElementById("inviteNav");
+
+    const videoNav =
+        document.getElementById("videoNav");
+
+
+    function showSection(section) {
+
+        earnSection.classList.add("hidden");
+        inviteSection.classList.add("hidden");
+        videoSection.classList.add("hidden");
+
+        earnNav.classList.remove("active");
+        inviteNav.classList.remove("active");
+        videoNav.classList.remove("active");
+
+
+        if (section === "earn") {
+
+            earnSection.classList.remove("hidden");
+            earnNav.classList.add("active");
+
+        }
+
+
+        if (section === "invite") {
+
+            inviteSection.classList.remove("hidden");
+            inviteNav.classList.add("active");
+
+        }
+
+
+        if (section === "video") {
+
+            videoSection.classList.remove("hidden");
+            videoNav.classList.add("active");
+
+        }
+
+    }
+
+
+    earnNav.addEventListener(
+        "click",
+        () => showSection("earn")
+    );
+
+
+    inviteNav.addEventListener(
+        "click",
+        () => showSection("invite")
+    );
+
+
+    videoNav.addEventListener(
+        "click",
+        () => showSection("video")
+    );
+
+
+    /* =========================================
+       ÉTAT LOCAL
+    ========================================= */
 
     let adsWatched = 0;
 
@@ -382,11 +817,9 @@
     let AdController = null;
 
 
-    /*
-    ==========================================
-    AFFICHAGE
-    ==========================================
-    */
+    /* =========================================
+       AFFICHAGE
+    ========================================= */
 
     function updateDisplay() {
 
@@ -417,30 +850,18 @@
             adButton.disabled = true;
 
             adButton.textContent =
-                "✅ RÉCOMPENSE OBTENUE";
+                "✅ BONUS TERMINÉ";
 
         }
 
     }
 
 
-    /*
-    ==========================================
-    INITIALISATION ADSGRAM
-    ==========================================
-    */
+    /* =========================================
+       ADSGRAM
+    ========================================= */
 
     function initializeAds() {
-
-        if (BLOCK_ID === "TON_BLOCK_ID") {
-
-            status.textContent =
-                "⚠️ BlockID AdsGram pas encore configuré.";
-
-            return false;
-
-        }
-
 
         if (
             !window.Adsgram ||
@@ -483,15 +904,15 @@
     }
 
 
-    /*
-    ==========================================
-    REGARDER UNE PUBLICITÉ
-    ==========================================
-    */
+    /* =========================================
+       PUBLICITÉ
+    ========================================= */
 
     async function watchAd() {
 
-        if (adsWatched >= REQUIRED_ADS) {
+        if (
+            adsWatched >= REQUIRED_ADS
+        ) {
 
             return;
 
@@ -526,26 +947,22 @@
         try {
 
             /*
-            AdsGram Rewarded :
-            la Promise se résout lorsque
-            la publicité récompensée est
-            regardée jusqu'à la fin.
+              AdsGram considère la Promise
+              comme terminée lorsque le Reward
+              est accordé selon le type de bloc.
             */
 
             await AdController.show();
 
 
             /*
-            ==================================
-            DÉMO DE RÉCOMPENSE
-            ==================================
+              Démonstration locale uniquement.
 
-            Pour l'instant, on incrémente
-            localement.
-
-            PLUS TARD :
-            cette partie sera remplacée
-            par une validation serveur.
+              IMPORTANT :
+              le serveur RIM CHA devra
+              ultérieurement valider la
+              récompense avant de créditer
+              réellement database.json.
             */
 
             adsWatched++;
@@ -555,20 +972,17 @@
                 "✅ Publicité terminée !";
 
 
-            /*
-            Récompense après 5 publicités
-            */
-
             if (
                 adsWatched >= REQUIRED_ADS
             ) {
 
                 coins += REWARD;
 
+
                 status.textContent =
-                    "🎉 Bravo ! Tu as reçu "
+                    "🎉 Bonus de "
                     + REWARD
-                    + " 🪙";
+                    + " 🪙 atteint !";
 
             }
 
@@ -586,7 +1000,6 @@
 
             status.textContent =
                 "❌ Publicité indisponible. Réessaie.";
-
 
         } finally {
 
@@ -606,27 +1019,112 @@
     }
 
 
-    /*
-    ==========================================
-    BOUTON
-    ==========================================
-    */
-
     adButton.addEventListener(
         "click",
         watchAd
     );
 
 
-    /*
-    ==========================================
-    AFFICHAGE INITIAL
-    ==========================================
-    */
+    /* =========================================
+       PARTAGE
+    ========================================= */
+
+    const inviteButton =
+        document.getElementById("inviteButton");
+
+    const inviteStatus =
+        document.getElementById("inviteStatus");
+
+
+    inviteButton.addEventListener(
+        "click",
+        () => {
+
+            const shareText =
+                "🎁 Rejoins RIM CHA et découvre le bot !";
+
+
+            const shareUrl =
+                "https://t.me/"
+                + BOT_USERNAME;
+
+
+            const telegramShareUrl =
+                "https://t.me/share/url"
+                + "?url="
+                + encodeURIComponent(shareUrl)
+                + "&text="
+                + encodeURIComponent(shareText);
+
+
+            try {
+
+                tg.openTelegramLink(
+                    telegramShareUrl
+                );
+
+            } catch (error) {
+
+                window.open(
+                    telegramShareUrl,
+                    "_blank"
+                );
+
+            }
+
+
+            inviteStatus.textContent =
+                "📤 Choisis les personnes avec qui partager RIM CHA.";
+
+        }
+
+    );
+
+
+    /* =========================================
+       BOUTON VIDÉOS
+    ========================================= */
+
+    const videoButton =
+        document.getElementById("videoButton");
+
+
+    videoButton.addEventListener(
+        "click",
+        () => {
+
+            const botUrl =
+                "https://t.me/"
+                + BOT_USERNAME;
+
+
+            try {
+
+                tg.openTelegramLink(
+                    botUrl
+                );
+
+            } catch (error) {
+
+                window.open(
+                    botUrl,
+                    "_blank"
+                );
+
+            }
+
+        }
+
+    );
+
+
+    /* =========================================
+       INITIALISATION
+    ========================================= */
 
     updateDisplay();
 
 </script>
 
 </body>
-  </html>
+            </html>
